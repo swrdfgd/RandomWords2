@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Random Words</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<style>
+:root{
+  --bg:#0b0d13;
+  --card:#141826;
+  --accent:#7aa2f7;
+  --soft:#9aa4bf;
+  --text:#e6e9f0;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:
+    radial-gradient(circle at top, #1a2035, #0b0d13 60%);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+}
+
+.container{
+  width:100%;
+  max-width:960px;
+  padding:28px;
+}
+
+header h1{
+  margin:0 0 10px;
+  font-size:clamp(1.8rem,4vw,2.6rem);
+}
+header p{
+  margin:0 0 22px;
+  color:var(--soft);
+  max-width:720px;
+  line-height:1.65;
+}
+
+button{
+  background:var(--accent);
+  border:none;
+  color:#0b0d13;
+  padding:12px 20px;
+  font-weight:700;
+  border-radius:14px;
+  cursor:pointer;
+}
+button:hover{opacity:.9}
+
+.words{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:16px;
+}
+
+.word{
+  background:linear-gradient(180deg,#1b2136,#12162a);
+  padding:16px;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+.word span{
+  display:block;
+  font-size:1.15rem;
+  font-weight:650;
+  word-break:break-word;
+}
+.word small{
+  margin-top:6px;
+  display:block;
+  font-size:.75rem;
+  color:var(--soft);
+}
+
+footer{
+  margin-top:40px;
+  text-align:center;
+  font-size:.8rem;
+  color:#6f7790;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>Random Words</h1>
+
+</header>
+
+<button onclick="generate()">Generate</button>
+
+<section class="words" id="words"></section>
+
+<footer>
+
+</footer>
+
+</div>
+
+<script>
+/* ======================================================
+   GLOBAL SITE LISTS (LOADED ONCE)
+====================================================== */
+
+let WIKTIONARY_SITES = [];
+let WIKIPEDIA_SITES = [];
+
+/* ======================================================
+   SAFE FETCH
+====================================================== */
+
+function fetchWithTimeout(url, ms = 6000){
+  return Promise.race([
+    fetch(url),
+    new Promise((_, reject) =>
+      setTimeout(() => reject("timeout"), ms)
+    )
+  ]);
+}
+
+async function fetchJSON(url){
+  const r = await fetchWithTimeout(url);
+  return r.json();
+}
+
+/* ======================================================
+   LOAD SUBDOMAINS ONCE (SITEMATRIX)
+====================================================== */
+
+async function loadWikimediaSites(){
+  const data = await fetchJSON(
+    "https://meta.wikimedia.org/w/api.php?action=sitematrix&format=json&origin=*"
+  );
+
+  const matrix = data.sitematrix;
+
+  for(const key in matrix){
+    if(key === "count") continue;
+
+    const block = matrix[key];
+    if(!block.site || !block.code) continue;
+
+    const lang = block.code; // ← INI YANG BENAR
+
+    block.site.forEach(site=>{
+      if(site.closed || site.private) return;
+
+      if(site.code === "wiktionary"){
+        WIKTIONARY_SITES.push(lang);
+      }
+
+      if(site.code === "wiki"){
+        WIKIPEDIA_SITES.push(lang);
+      }
+    });
+  }
+}
+
+
+/* ======================================================
+   WORD SOURCES
+====================================================== */
+
+async function randomFromWiktionary(){
+  const lang = WIKTIONARY_SITES[
+    Math.floor(Math.random() * WIKTIONARY_SITES.length)
+  ];
+
+  const data = await fetchJSON(
+    `https://${lang}.wiktionary.org/w/api.php?action=query&list=random&rnlimit=1&format=json&origin=*`
+  );
+
+  return {
+    word: data.query.random[0].title,
+    source: `Wiktionary (${lang})`
+  };
+}
+
+async function randomFromWikipedia(){
+  const lang = WIKIPEDIA_SITES[
+    Math.floor(Math.random() * WIKIPEDIA_SITES.length)
+  ];
+
+  const data = await fetchJSON(
+    `https://${lang}.wikipedia.org/w/api.php?action=query&list=random&rnlimit=1&format=json&origin=*`
+  );
+
+  return {
+    word: data.query.random[0].title,
+    source: `Wikipedia (${lang})`
+  };
+}
+
+
+
+/* =========================================
+   RANDOM FANDOM VIA TXT
+========================================= */
+
+//const FANDOM_FILE_COUNT = 3234;
+const FANDOM_FILE_COUNT = 100;
+const FANDOM_PATH = "fandom";
+
+function randomFromFandom(){
+
+  return new Promise((resolve, reject)=>{
+
+    /* 1. file fandom acak */
+    const fileIndex = Math.floor(Math.random() * FANDOM_FILE_COUNT) + 1;
+    const fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/fandom/fandom_${fileIndex}.txt`;
+
+    $.get(fileUrl)
+      .done(txt => {
+
+        /* 2. ambil baris acak */
+        const lines = txt
+          .split("\n")
+          .map(l => l.trim())
+          .filter(Boolean);
+
+        if(!lines.length) return reject("empty fandom file");
+
+        const line = lines[Math.floor(Math.random() * lines.length)];
+
+        /* 3. ambil link setelah koma terakhir */
+        const lastComma = line.lastIndexOf(",");
+        if(lastComma === -1) return reject("invalid line");
+
+        let wikiUrl = line.slice(lastComma + 1).trim();
+        wikiUrl = wikiUrl.replace(/\/+$/, "");
+
+        /* 4. ambil artikel acak */
+        const api = `${wikiUrl}/api.php?action=query&list=random&rnlimit=1&format=json&origin=*`;
+
+        $.getJSON(api)
+          .done(data=>{
+            const title = data?.query?.random?.[0]?.title;
+            if(!title) return reject("no article");
+
+            resolve({
+              word: title,
+              source: `Fandom (${wikiUrl.replace(/^https?:\/\//,"")})`
+            });
+          })
+          .fail(()=>reject("article api failed"));
+
+      })
+      .fail(()=>reject("fandom txt failed"));
+
+  });
+}
+
+/* ======================================================
+   FALLBACK
+====================================================== */
+
+function fallbackWord(){
+  const chars = "abcdefghijklmnopqrstuvwxyz";
+  let len = Math.floor(Math.random()*8)+3;
+  let w = "";
+  for(let i=0;i<len;i++){
+    w += chars[Math.floor(Math.random()*chars.length)];
+  }
+  return {
+    word: w,
+    source: "Fallback Generator"
+  };
+}
+
+/* ======================================================
+   SELECTOR (TRY PER STAGE)
+====================================================== */
+
+async function generateWord(){
+
+  if(Math.random() < 0.5){
+    try{ return await randomFromWiktionary(); }
+    catch(e){ console.warn("Wiktionary failed"); }
+  }
+
+  if(Math.random() < 0.5){
+    try{ return await randomFromWikipedia(); }
+    catch(e){ console.warn("Wikipedia failed"); }
+  }
+
+  try{ return await randomFromFandom(); }
+  catch(e){ console.warn("Fandom failed"); }
+
+  return fallbackWord();
+}
+
+/* ======================================================
+   MAIN
+====================================================== */
+
+function randomCount(){
+  return Math.floor(Math.random()*100)+1;
+}
+
+async function generate(){
+  const box = document.getElementById("words");
+  box.innerHTML = "";
+
+  const count = randomCount();
+
+  for(let i=0;i<count;i++){
+    try{
+      const d = await generateWord();
+      const el = document.createElement("div");
+      el.className = "word";
+      el.innerHTML = `
+        <span>${d.word}</span>
+        <small>${d.source}</small>
+      `;
+      box.appendChild(el);
+    }catch(e){
+      i--;
+    }
+  }
+}
+
+/* ======================================================
+   INIT (LOAD ONCE)
+====================================================== */
+
+(async()=>{
+  try{
+    await loadWikimediaSites();
+  }catch(e){
+    console.warn("Sitematrix failed — using fallback only");
+  }
+  generate();
+})();
+</script>
+
+</body>
+</html>
