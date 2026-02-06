@@ -242,9 +242,10 @@ function randomFromFandom(){
 
         let wikiUrl = line.slice(lastComma + 1).trim();
         wikiUrl = wikiUrl.replace(/\/+$/, "");
+		wikiUrl = wikiUrl.replace("http://", "https://");
 
         /* 4. ambil artikel acak */
-        const api = `${wikiUrl}/api.php?action=query&list=random&rnlimit=1&format=json&origin=*`;
+        const api = `${wikiUrl}/api.php?origin=*&action=query&format=json&list=random&rnlimit=1&rnnamespace=0`;
 
         $.getJSON(api)
           .done(data=>{
