@@ -264,6 +264,48 @@ function randomFromFandom(){
   });
 }
 
+
+
+/* =========================================
+   RANDOM FROM WORDLIST
+========================================= */
+
+const WORDLIST_FILE_COUNT = 424;
+
+function randomFromWordlist(){
+
+  return new Promise((resolve, reject)=>{
+
+    /* 1. file wordlist acak */
+    const fileIndex = Math.floor(Math.random() * WORDLIST_FILE_COUNT) + 1;
+    const fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/wordlist/wordlist_${fileIndex}.txt`;
+
+    $.get(fileUrl)
+      .done(txt => {
+
+        /* 2. ambil baris acak */
+        const lines = txt
+          .split("\n")
+          .map(l => l.trim())
+          .filter(Boolean);
+
+        if(!lines.length) return reject("empty wordlist file");
+
+        const line = lines[Math.floor(Math.random() * lines.length)];
+		
+		resolve({
+              word: line,
+              source: `wordlist ${fileIndex}`
+            });
+
+  
+
+      })
+      .fail(()=>reject("wordlist txt failed"));
+
+  });
+}
+
 /* ======================================================
    FALLBACK
 ====================================================== */
@@ -296,9 +338,14 @@ async function generateWord(){
     try{ return await randomFromWikipedia(); }
     catch(e){ console.warn("Wikipedia failed"); }
   }
-
-  try{ return await randomFromFandom(); }
-  catch(e){ console.warn("Fandom failed"); }
+	
+  if(Math.random() < 0.5){
+    try{ return await randomFromFandom(); }
+    catch(e){ console.warn("Fandom failed"); }
+  }
+  
+    try{ return await randomFromWordlist(); }
+    catch(e){ console.warn("Wordlist failed"); }
 
   return fallbackWord();
 }
