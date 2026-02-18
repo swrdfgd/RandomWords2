@@ -370,9 +370,10 @@ async function generate(){
       const el = document.createElement("div");
       el.className = "word";
       el.innerHTML = `
-        <span>${d.word}</span>
-        <small>${d.source}</small>
-      `;
+        <span>${d.word}</span>`
+		//+`<small>${d.source}</small>`
+		;
+		
       box.appendChild(el);
     }catch(e){
       i--;
