@@ -170,6 +170,119 @@ async function loadWikimediaSites(){
   }
 }
 
+/* =========================================
+   TITLE CLEANER CONFIG
+========================================= */
+
+/*
+  Semua lowercase.
+  Tambahkan sendiri jika menemukan prefix baru.
+*/
+const FORBIDDEN_PREFIXES = [
+
+  // English
+  "user",
+  "template",
+  "talk",
+  "wikipedia",
+  "wiktionary",
+  "file",
+  "category",
+  "help",
+  "portal",
+  "module",
+  "mediawiki",
+  "special",
+  "draft",
+  "book",
+  "media",
+  "image",
+  "User talk",
+  "Template",
+  "Talk",
+
+  // Germanic / European variants
+  "benotzer",      // Luxembourgish User
+  "benutzer",      // German User
+  "benutzerin",
+  "diskussion",    // German Talk
+  "vorlage",       // German Template
+
+  // Romance variants
+  "usuario",       // Spanish/Portuguese User
+  "utilisateur",   // French User
+  "modèle",        // French Template
+  "categoria",     // Spanish/Italian Category
+
+  // Slavic
+  "участник",      // Russian User
+  "шаблон",        // Russian Template
+
+  // African / others
+  "ithemplethi",   // Zulu Template
+  "wiksyunaryo",   // Tagalog Wiktionary
+
+  // Generic wiki namespace
+  "project",
+  "thread",
+  "comment",
+  
+  "Dalībnieka diskusija",
+  "सदस्य",
+  "Kategorie",
+  
+];
+
+
+/* =========================================
+   TITLE CLEANER FUNCTION
+========================================= */
+
+function cleanTitle(title){
+
+  if(!title) return title;
+
+  let t = title.trim();
+
+  /* =========================
+     1️⃣ Remove blacklisted prefixes (recursive)
+  ========================== */
+
+  while(true){
+
+    const colonIndex = t.indexOf(":");
+    if(colonIndex === -1) break;
+
+    const prefix = t.slice(0, colonIndex).trim().toLowerCase();
+
+    if(FORBIDDEN_PREFIXES.includes(prefix)){
+      t = t.slice(colonIndex + 1).trim();
+    } else {
+      break; // prefix bukan blacklist → stop
+    }
+  }
+
+  /* =========================
+     2️⃣ Remove trailing " wiki"
+  ========================== */
+
+  if(!/^wiki$/i.test(t)){
+    t = t.replace(/\s+wiki$/i, "");
+  }
+  
+  if(!/^Wiki$/i.test(t)){
+    t = t.replace(/\s+Wiki$/i, "");
+  }
+
+  /* =========================
+     3️⃣ Final trim & cleanup
+  ========================== */
+
+  t = t.trim();
+
+  return t;
+}
+
 
 /* ======================================================
    WORD SOURCES
@@ -185,7 +298,7 @@ async function randomFromWiktionary(){
   );
 
   return {
-    word: data.query.random[0].title,
+    word: cleanTitle(data.query.random[0].title),
     source: `Wiktionary (${lang})`
   };
 }
@@ -200,7 +313,7 @@ async function randomFromWikipedia(){
   );
 
   return {
-    word: data.query.random[0].title,
+    word: cleanTitle(data.query.random[0].title),
     source: `Wikipedia (${lang})`
   };
 }
@@ -252,7 +365,7 @@ function randomFromFandom(){
             if(!title) return reject("no article");
 
             resolve({
-              word: title,
+              word: cleanTitle(title),
               source: `Fandom (${wikiUrl.replace(/^https?:\/\//,"")})`
             });
           })
