@@ -301,7 +301,8 @@ async function randomFromWiktionary(){
 
   return {
     word: cleanTitle(data.query.random[0].title),
-    source: `Wiktionary (${lang})`
+    source: `Wiktionary (${lang})`,
+	isFontGenerated: false
   };
 }
 
@@ -316,7 +317,8 @@ async function randomFromWikipedia(){
 
   return {
     word: cleanTitle(data.query.random[0].title),
-    source: `Wikipedia (${lang})`
+    source: `Wikipedia (${lang})`,
+	isFontGenerated: false
   };
 }
 
@@ -368,7 +370,8 @@ function randomFromFandom(){
 
             resolve({
               word: cleanTitle(title),
-              source: `Fandom (${wikiUrl.replace(/^https?:\/\//,"")})`
+              source: `Fandom (${wikiUrl.replace(/^https?:\/\//,"")})`,
+			  isFontGenerated: false
             });
           })
           .fail(()=>reject("article api failed"));
@@ -410,7 +413,8 @@ function randomFromWordlist(){
 		
 		resolve({
               word: line,
-              source: `wordlist ${fileIndex}`
+              source: `wordlist ${fileIndex}`,
+			  isFontGenerated: false
             });
 
   
@@ -499,7 +503,8 @@ async function generate(){
 		  applyExactFont(el, d);
 		}
 		else{
-		  applyRandomFont(el); // tetap pakai random font biasa
+		  
+		  await applyRandomFont(el); // tetap pakai random font biasa
 		}
 		
 		box.appendChild(el);

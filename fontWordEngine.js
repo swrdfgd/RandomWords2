@@ -154,6 +154,40 @@ function applyExactFont(element, data){
 }
 
 /* ======================================================
+   APPLY RANDOM FONT (FOR NON-FONT-GENERATED WORDS)
+====================================================== */
+
+async function applyRandomFont(element){
+
+ await loadGoogleFontsList();
+ const style = document.createElement("style");
+ 
+	console.log('tess');
+	
+	if(!FONT_ENGINE_CACHE.fonts.length)
+		throw "No fonts available";
+
+	  const fontMeta =
+		FONT_ENGINE_CACHE.fonts[
+		  Math.floor(Math.random()*FONT_ENGINE_CACHE.fonts.length)
+		];
+	  console.log(fontMeta);
+
+	  const fontURL = fontMeta.files.regular;
+
+  style.innerHTML = `
+    @font-face {
+      font-family: "${fontMeta.family}";
+      src: url(${fontURL});
+    }
+  `;
+
+  document.head.appendChild(style);
+
+  element.style.fontFamily = `"${fontMeta.family}"`;
+}
+
+/* ======================================================
    EXPORTS (GLOBAL)
 ====================================================== */
 
