@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
+<script src="fontWordEngine.js"></script>
 
 
 <style>
@@ -457,8 +459,13 @@ async function generateWord(){
     catch(e){ console.warn("Fandom failed"); }
   }
   
+  if(Math.random() < 0.5){
     try{ return await randomFromWordlist(); }
     catch(e){ console.warn("Wordlist failed"); }
+  }
+
+	try{ return await randomWordFromFont();}
+	catch(e){console.warn("Font engine failed"); }
 
   return fallbackWord();
 }
@@ -479,15 +486,24 @@ async function generate(){
 
   for(let i=0;i<count;i++){
     try{
-      const d = await generateWord();
-      const el = document.createElement("div");
-      el.className = "word";
-      el.innerHTML = `
-        <span>${d.word}</span>`
-		//+`<small>${d.source}</small>`
-		;
+		const d = await generateWord();
+
+		const el = document.createElement("div");
+		el.className = "word";
+		el.innerHTML = `<span>${d.word}</span>`;
+
 		
-      box.appendChild(el);
+
+		// 🔥 jika font-generated → pakai exact font
+		if(d.isFontGenerated){
+		  applyExactFont(el, d);
+		}
+		else{
+		  applyRandomFont(el); // tetap pakai random font biasa
+		}
+		
+		box.appendChild(el);
+
     }catch(e){
       i--;
     }
