@@ -8,6 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.min.js"></script>
 <script src="fontWordEngine.js"></script>
+<script src="chaosStyle.js"></script>
 
 
 <style>
@@ -24,8 +25,13 @@
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background:
-    radial-gradient(circle at top, #1a2035, #0b0d13 60%);
+
+  background-image: url("https://picsum.photos/1920/1080.webp?random=1");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   color:var(--text);
   min-height:100vh;
   display:flex;
@@ -41,6 +47,19 @@ body{
 header h1{
   margin:0 0 10px;
   font-size:clamp(1.8rem,4vw,2.6rem);
+
+  color:#ffffff;
+
+  /* Outline hitam */
+  -webkit-text-stroke: 2px black;
+
+  /* Shadow hitam kuat agar selalu terlihat */
+  text-shadow:
+    2px 2px 4px rgba(0,0,0,0.8),
+    -2px -2px 4px rgba(0,0,0,0.8),
+    0 0 6px rgba(0,0,0,0.9);
+
+  font-weight:800;
 }
 header p{
   margin:0 0 22px;
@@ -62,16 +81,22 @@ button:hover{opacity:.9}
 
 .words{
   margin-top:22px;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  display:flex;
+  flex-wrap:wrap;
   gap:16px;
+  align-items:flex-start;
 }
 
 .word{
-  background:linear-gradient(180deg,#1b2136,#12162a);
-  padding:16px;
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,.35);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  width:auto;
+  height:auto;
+
+  min-width:60px;
+  min-height:40px;
 }
 .word span{
   display:block;
@@ -494,7 +519,8 @@ async function generate(){
 
 		const el = document.createElement("div");
 		el.className = "word";
-		el.innerHTML = `<span>${d.word}</span>`;
+		el.textContent = d.word;
+		applyChaosWordStyle(el);
 
 		
 
