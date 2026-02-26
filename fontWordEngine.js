@@ -106,7 +106,8 @@ async function randomWordFromFont(){
       const ranges = detectUnicodeRanges(codepoints);
 
       let word = "";
-      const len = Math.floor(Math.random()*6)+3;
+      let len = Math.floor(Math.random()*6)+1;
+	  while (Math.random() < 0.5){len++;}
 
       for(let i=0;i<len;i++){
 
@@ -161,8 +162,7 @@ async function applyRandomFont(element){
 
  await loadGoogleFontsList();
  const style = document.createElement("style");
- 
-	console.log('tess');
+
 	
 	if(!FONT_ENGINE_CACHE.fonts.length)
 		throw "No fonts available";
@@ -171,7 +171,6 @@ async function applyRandomFont(element){
 		FONT_ENGINE_CACHE.fonts[
 		  Math.floor(Math.random()*FONT_ENGINE_CACHE.fonts.length)
 		];
-	  console.log(fontMeta);
 
 	  const fontURL = fontMeta.files.regular;
 
