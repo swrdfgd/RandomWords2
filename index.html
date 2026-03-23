@@ -415,6 +415,8 @@ function randomFromFandom(){
 
 const WORDLIST_FILE_COUNT = 424;
 const MOREWORDS_FILE_COUNT = 300;
+let fileIndex
+let fileUrl
 
 function randomFromWordlist(){
 
@@ -422,14 +424,13 @@ function randomFromWordlist(){
 
     /* 1. file wordlist acak */
 	if (Math.random() < 0.5){
-		const fileIndex = Math.floor(Math.random() * WORDLIST_FILE_COUNT) + 1;
-		const fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/wordlist/wordlist_${fileIndex}.txt`;
+		fileIndex = Math.floor(Math.random() * WORDLIST_FILE_COUNT) + 1;
+		fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/wordlist/wordlist_${fileIndex}.txt`;
 	}
 	else{
-		const fileIndex = Math.floor(Math.random() * MOREWORDS_FILE_COUNT) + 1;
-		const fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/morewords/items_${fileIndex}.txt`;		
+		fileIndex = Math.floor(Math.random() * MOREWORDS_FILE_COUNT) + 1;
+		fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/morewords/items_${fileIndex}.txt`;		
 	}
-	console.log(fileUrl);
 
     $.get(fileUrl)
       .done(txt => {
@@ -443,7 +444,6 @@ function randomFromWordlist(){
         if(!lines.length) return reject("empty wordlist file");
 
         const line = lines[Math.floor(Math.random() * lines.length)];
-		console.log(line);
 
 		resolve({
               word: line,
