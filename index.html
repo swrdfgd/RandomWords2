@@ -415,6 +415,7 @@ function randomFromFandom(){
 
 const WORDLIST_FILE_COUNT = 424;
 const MOREWORDS_FILE_COUNT = 600;
+const MOREWORDS2_FILE_COUNT = 100;
 let fileIndex
 let fileUrl
 
@@ -423,14 +424,20 @@ function randomFromWordlist(){
   return new Promise((resolve, reject)=>{
 
     /* 1. file wordlist acak */
-	if (Math.random() < 0.5){
+	if (Math.random() < 1/3){
 		fileIndex = Math.floor(Math.random() * WORDLIST_FILE_COUNT) + 1;
 		fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/wordlist/wordlist_${fileIndex}.txt`;
 	}
-	else{
+	else if (Math.random() < 1/2){
 		fileIndex = Math.floor(Math.random() * MOREWORDS_FILE_COUNT) + 1;
 		fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/morewords/items_${fileIndex}.txt`;		
 	}
+	else {
+		fileIndex = Math.floor(Math.random() * MOREWORDS2_FILE_COUNT) + 1;
+		fileUrl = `https://cdn.jsdelivr.net/gh/swrdfgd/RandomWords2/morewords2/names_${fileIndex}.txt`;	
+	}
+	
+	
 
     $.get(fileUrl)
       .done(txt => {
