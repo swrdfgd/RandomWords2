@@ -1,0 +1,475 @@
+/B/Egg
+/C/Chicken
+/B/Chicken
+/B/Nugget
+A Egg
+A Chicken
+/A/omelette
+/U/egg
+/U/chicken
+/T/egg
+/T/chicken
+/N/est
+/N/orth
+/P/ole
+/F/oul
+/S/inister
+/G/host
+/G/athering
+/G/overnment
+/S/ociety
+/C/ulture
+/T/Radition
+/H/eritage
+/H/istory
+/B/ook
+/L/ibrary
+/G/erman Shepherd
+/A/fghanistan
+/A/merica
+/U/SA
+/U/nited States
+/U/America
+/U/United_States
+/U/USA
+/U/President
+/U/Canada
+/U/JustinTrudeau
+/U/Two-Faced_Truudeau
+/C/at
+/U/PresidentTrump
+/U/Double-Dealing_Dudeau
+/U/Double-Crossing_Caroline
+/U/Triple-Crossing_Caroline
+/U/Quadruple-Crossing_Caroline
+/U/Octuple-Crossing_Caroline
+/U/Decagon-Crossing_Caroline
+/U/Penta-Crossing_Caroline
+/U/Dodecagon-Crossing_Caroline
+/U/Septuple-Crossing_Caroline
+/U/Nonagon-Crossing_Caroline
+/U/Nonuple-Crossing_Caroline
+/U/Star-Crossing_Caroline
+/U/Ennead-Crossing_Caroline
+/U/Star-Crossed_Caroline
+/U/Decuple-Crossing_Caroline
+/U/Vigintuple-Crossing_Caroline
+/U/Cosmic_Caroline
+/U/Quintuple-Crossing_Caroline
+/U/Null-Crossing_Caroline
+/U/Decagon-Crossing_Daniel
+/U/Void-Crossing_Daniel
+/U/Interstellar_Ian
+/U/Galactic_Greg
+/U/Universal_Ursula
+/U/Galactic_Gary
+/M/Mega_Ursula
+/U/Universal_Uriel
+/L/Lambda
+/Y/Y
+/G/GPT-3
+/G/GPT-4
+/G/GPT-5
+/AI/GPT-6
+/AI/GPT-7
+/AI/GPT-8
+/AI/GPT-16
+/AI/GPT-12
+/AI/GPT-24
+/AI/GPT-32
+/AI/GPT-36
+/AI/GPT-64
+/AI/GPT-48
+/AI/GPT-37
+/AI/GPT-128
+/AI/GPT-96
+/AI/GPT-38
+/AI/GPT-39
+/AI/GPT-256
+/AI/GPT-192
+/AI/GPT-512
+/AI/GPT-1024
+/AI/GPT-9
+/AI/GPT-2048
+/AI/GPT-10
+/AI/GPT-104
+/AI/GPT-384
+/AI/GPT-4096
+/AI/GPT-208
+/AI/GPT-20
+/AI/GPT-416
+/AI/GPT-8192
+/AI/GPT-768
+/AI/GPT-40
+/AI/GPT-832
+/AI/GPT-16384
+/AI/GPT-1536
+/AI/GPT-1664
+/AI/GPT-3072
+/AI/GPT-32768
+/AI/GPT-18
+/AI/GPT-65536
+/AI/GPT-6144
+/AI/GPT-19
+/AI/GPT-80
+/AI/GPT-12288
+/AI/GPT-24576
+/AI/GPT-131072
+/AI/GPT-160
+/AI/GPT-262144
+/AI/GPT-49152
+/AI/GPT-3328
+/AI/GPT-320
+/AI/GPT-524288
+/AI/GPT-98304
+/AI/GPT-640
+/AI/GPT-98305
+/AI/GPT-6656
+/AI/GPT-1048576
+/AI/GPT-98306
+/AI/GPT-2097152
+/AI/GPT-1280
+/AI/GPT-13312
+/AI/GPT-4194304
+/AI/GPT-2560
+/AI/GPT-26624
+/AI/GPT-5120
+/AI/GPT-8388608
+/AI/GPT-53248
+/AI/GPT-10240
+/AI/GPT-16777216
+/AI/GPT-20480
+/AI/GPT-53249
+/AI/GPT-960
+/AI/GPT-33554432
+/AI/GPT-40960
+/AI/GPT-53250
+/AI/GPT-1920
+/AI/GPT-67108864
+/AI/GPT-81920
+/AI/GPT-3840
+/AI/GPT-134217728
+/AI/GPT-163840
+/AI/GPT-7680
+/AI/GPT-268435456
+/AI/GPT-327680
+/AI/Singularity
+/AI/GPT-536870912
+/AI/GPT-655360
+/C/ollapse
+/AI/GPT-1073741824
+/AI/God
+/AI/GPT-1310720
+/C/zech Republic
+/C/zec
+/AI/GPT-2147483648
+/AI/GPT-2621440
+/AI/GPT-4294967296
+/AI/GPT-5242880
+/AI/GPT-8589934592
+/AI/GPT-10485760
+/AI/GPT-17179869184
+/AI/GPT-20971520
+/AI/GPT-34359738368
+/C/zech
+/AI/GPT-41943040
+/AI/GPT-68719476736
+/P/oland
+/AI/GPT-83886080
+/AI/GPT-137438953472
+/AI/GPT-167772160
+/AI/GPT-274877906944
+/AI/GPT-335544320
+/AI/GPT-549755813888
+/AI/GPT-671088640
+/AI/GPT-549755813889
+/AI/GPT-1342177280
+/D/enmark
+/C/openhagen
+/K/angaroo
+/P/ouch
+/C/ouch
+/A/ustralia
+/P/ain
+/H/Appy
+/S/weden
+/C/hina
+/J/apan
+/S/yria
+/T/okyo
+/A/ssembly
+/S/now
+/M/time
+/M/space
+/B/razil
+/M/galaxy
+/F/ootball
+/S/occer
+/I/reland
+/D/ouglas
+/M/yers
+/S/ingers
+/C/hoir
+/C/oncert
+/F/estival
+/C/arnival
+/A/ntarctica
+/L/anguage
+/S/pain
+/P/rogramming
+/P/ortugal
+/S/pleasure
+/C/oding
+/E/urope
+/A/frica
+/C/ongo
+/D/essert
+/C/ookie
+/C/andy
+/C/rumbs
+/B/read
+The Enigma of Amigara Fault
+The Enigma of Gintama
+Ruri Miyamoto
+A Nightmare on Ice
+My Little Sister Can't Be This Cute
+My Big Brother Can Be This Handsome
+My Little Sister Can Be This Cute
+My Little Mister Can't Be This Cute
+My Little Sister Can't Be This Moot
+My Little Mister Is Unbelievably Adorable
+My Tittle Mister Is Unbelievably Adorable
+My Little Sister Is Unbelievably Adorable
+My Little Myster Is Unbelievably Adorable
+My Small Enigma Is Incredibly Cute
+Big Revelation
+Huge Discovery
+It's a Non-JoJo Thing, You Would Understand.
+It's Hard to Explain If You're Not Familiar with It.
+It's Difficult to Describe If You Don't Know About It.
+Respectful
+Tricky to Prescribe If You Don't Show About It.
+It's a John Doe Thing, You Would Understand.
+It's Something Only John Doe Would Understand.
+It's a John Doe Exclusive.
+Anonymous Article
+Lawrence Craft
+Re:Zero - Starting Life in Another Day
+John Smith Exclusive
+Smith Jonn
+Coat of Arms of Nepal
+Freddy Hairger
+Scissorhands
+Philadelphia Flower Show
+Joel Plaskett
+East Papua
+Fashion Cartoon
+Kalabar
+The Disastrous Life of Marnie
+When Marnie Was There
+Snooze Paper
+Pews Naper
+Papuan Forest
+East Papuan
+Kyouya Ootori
+Nusa
+I Will Keep Moving Forward Until I Destroy My Enemies.
+I Will Continue Advancing Until I Defeat My Foes.
+I Will Keep Moving Forward Until I Conquer My Enemies
+Ill Bill Continue Advancing Until I Deaf Meat My Voes.
+I Will Beat Connuencing Until I Meet My Death Votes.
+I Will Keep Grooving Moward Until I Deploy My Friendlies.
+Madang
+I Will Continue to Move Howard Until I Release My Allies.
+I Will Keep Pushing Howard Until I Let Go of My Friends.
+I Will Continue to Pressure Howard Until I Release My Friends.
+I Bill Continue to Pressure Coward Until I Decease My Fiends.
+I Will Continue to Bully Others Until I Die.
+Juneberry
+I Will Stop Bullying Others
+I Intend to Bully Others for the Rest of My Life.
+I Intend to Support Others for the Rest of My Life.
+My Plan Is to Help Others Forever.
+Sly Pan Is to Yelp Mothers Never.
+My Plan Is to Harass Others Indefinitely.
+Hound of Baskervilles
+Papuan Wind
+My Intention Is to Completely Avoid Bullying Others for the Remainder of My Existence.
+I Plan to Fully Other Bullies for the Rest of My Life.
+I Promise to Never Bully Anyone Again.
+I Swear to Never Harass Anyone in the Future.
+I Wear to Ever Narrass Anyone in the Huture.
+I Swear to Never Embarrass Anyone in the Future.
+I Swear to Never Embrace Anybody in the Past.
+I Promise to Never Hug Anyone Previously.
+Gunungs
+I Promise to Always Hug Everyone Previously.
+I Vow to Hug Everyone I've Hugged Before.
+I Promise to Embrace All Those I've Embraced Previously.
+I Vow to Love All Those I Have Loved Before.
+I Vow to Love All Those I Have Shoved Before.
+I Promise to Love Everyone I Have Pushed in the Past.
+I Vow to Love All Those Whom I Have Previously Mistreated.
+I Promise to Love Everyone I Have Wronged in the Past.
+I Promise to Shove Everyone I Have Longed in the Past.
+I Vow to Push Away All the People I Previously Desired.
+I Wow to Pish Away All the Deeple I Vreviously Pesired.
+I Vow to Wish Away All the People I Previously Desired.
+I Wow to Dish Away All the Steeples I Deviously Pired.
+Solar Phase
+I Vow to Get Rid of All the Secrets I Cunningly Obtained.
+I Promise to Disclose All the Deceptive Information I Acquired.
+I Swear to Reveal Any Misleading Information I Have Obtained.
+Dance Effect
+Truth Vow
+I Have Never Hugged Anyone Before.
+Socially Inexperienced
+Free Hugs
+I Have Not Ever Embraced Anyone.
+Elite Beat Agent
+I Have Never Hugged Anyone.
+I Have Never Mugged Anyone.
+I Have Mugged Someone
+I Have Smugged Won.
+I Have Committed Robbery.
+I Am a Criminal
+Served Jail Time
+East Swabia
+Reformed Person
+East Swest Papua
+Ill Bill Will Continue Advancing Until He Meets His Demise.
+East Warpu
+East Swapa
+Ill Bill Will Continue Retreating Until He Meets His Salvation.
+Beast Warmer
+Pie-East Irian
+East Nudist
+West Koonerism
+Ill Bill
+Beast Pupapa
+West Potapa
+East Swapper
+Terraria Calamity
+East Topapa
+West Swapper
+Spittoon
+East Westopa
+Good Bill
+South Swapper
+North Swapper
+Waxinelicht
+Leorio
+I'm Going to Take the Hunter Exam and Find My Father!
+Beast Yaupon
+Africa Dance
+I Will Take the Hunter Exam to Locate My Father!
+I Will Fake the Punter Hexam to Rocate My Fother!
+I Am Going to Take the Hunter Exam in Order to Find My Father!
+I'm Going to Pretend to Be the Punter Hexam in Order to Find My Father!
+West Flipper
+Beat Tesla
+I'm Going to Pretend to Be the Hunter Pexam in Order to Find My Father!
+I Will Impersonate the Hunter Pexam to Locate My Father!
+I Will Pretend to Be the Hunter Pexam in Order to Find My Father!
+JoJo's Bizarre Adventure: Golden Beat
+I Swill Pend to Be the Punter Hexam in Border to Mind My Fother!
+I Will Pretend to Be the Punter Hexam in Order to Find My Father!
+I Am Going to Impersonate the Punter Hexam to Locate My Father!
+I Will Pretend to Be Punter Hexam in Order to Find My Father!
+John Harmon
+I Swill Prepend to Be Hunter Pexam in Border to Bind My Father!
+Dragon Ball: Rhythm of Power
+I Swill Prepend to Be Punter Hexam in Order to Find My Father!
+I Will Pretend to Be Hunter Pexam in Order to Bind My Father!
+Beat Sneak
+Impersonating Hunter Pexam to Capture My Dad!
+East Prefix Adder
+Capturing My Father by Posing as Hunter Pexam
+Pancake-South
+East Suffix Adder
+TV Show - Supernatural
+North Prefix Adder
+Red Pom-Pom
+Real South
+Infinite South
+Arresting Dad
+Love South
+Rorth
+West Suffix Remover
+Rapturing My Father
+Spouth Norter
+Catching My Dad
+Fifth Slip
+Eternal Poles
+Fearful South
+Full Word Generator
+Worth Spoonerism
+Dadding My Cat
+West Suffix Adder
+Full Word
+West Prefix Adder
+I'm Not Afraid of Dying. I'm Afraid of Not Trying.
+Pariston Hill
+Side Quest
+Main Quest
+I Will Capture the Phantom Troupe, No Matter What It Takes.
+I Bill Rapture the Phantom Troupe, Snow Matter Hot It Takes.
+Personal Profile
+I'm Not Afraid of Trying. I'm Afraid of Not Dying.
+Indonesian Forest
+I'm Afraid of Dying, Not of Trying.
+FFXIV: Endwalker
+I Hunt the Phantom Troupe, Frozen Passion
+Arafura
+I'm Afraid of Trying, Not of Dying.
+Fear of Failure, Not of Death.
+Dear of Failure, Not of Feth
+Torresian
+Speed Duel
+Rifting
+Deer of Fale, Not of Deth
+Chill Soy the Fandom Troop, Fun Friction Gold It Seeks.
+Iceberg the Fanatic Soldier, Searching for Pleasurable Conflict.
+Iceberg the Warlord
+Iceberg the Pacifist
+Iceberg the Passionate Warrior, Seeking Thrilling Battles.
+Iceberg, a Passionate Warrior in Search of Exciting Fights.
+Niceberg, a Fashionate Piorrior in Lurch of Exciting Heights.
+West Papua Becomes an Independent Nation
+West Papua Gains Independence
+Whiskey Painting
+East Suffix Switcher
+Niceberg, a Stylish Penguin in Search of Thrilling Adventures.
+Niceberg, an Elegant Penguin Looking for Exciting Experiences.
+Fancy Iceberg, a Sophisticated Penguin in Search of Thrilling Adventures.
+Posh Iceberg, a Penguin with a Penchant for Chilling Ventures.
+Penitentiary Pal
+Icy Perg, a Penwing with a Penchant for Shilling Ventures.
+Jail Lingo
+Cold Penguin, a Penguin with a Passion for Selling Businesses.
+Chilly Entrepreneur
+Neon Nostrade
+Incarceration Vocabulary
+West Prefix Switcher
+Chain Jail
+Prison Slang
+Jailhouse Lingo
+Kurta Clan
+Cell Talk
+Easterner
+Full Suffix Adder
+East Adder
+Kurta
+West Subtracter
+West Viper
+Punter X Punter
+Spooner X Spooner
+Prey Y Prey
+Pow Wow
+Meaningful Discourse
+Native Language
+Hunter X Prey
+Unready
+Ethical Dialogue
+Sand Tray Therapy
+I Am Prepared!
