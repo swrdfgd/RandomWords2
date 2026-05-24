@@ -81,7 +81,7 @@ async function randomWordFromFont(){
 
   return new Promise((resolve, reject)=>{
 
-    opentype.load(fontURL, function(err, font){
+    opentype.parse(fontURL, function(err, font){
 
       if(err) return reject(err);
 
