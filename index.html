@@ -281,7 +281,7 @@ function cleanTitle(title){
     const colonIndex = t.indexOf(":");
     if(colonIndex === -1) break;
 
-    const prefix = t.slice(0, colonIndex).trim().toLowerCase();
+    const prefix = t.slice(0, colonIndex);
 
     if(FORBIDDEN_PREFIXES.includes(prefix)){
       t = t.slice(colonIndex + 1).trim();
@@ -529,10 +529,12 @@ async function generate(){
   box.innerHTML = "";
 
   const count = randomCount();
-
+  listKataTampil = [];
+  
   for(let i=0;i<count;i++){
     try{
 		const d = await generateWord();
+		listKataTampil.push([d.word, d.source]);
 
 		const el = document.createElement("div");
 		el.className = "word";
