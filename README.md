@@ -5,7 +5,7 @@
 An API to generate random words from Wikipedia, Wiktionary, Fandom, and curated wordlists. CORS is enabled by default.
 
 ## Base URL
-`[https://random-words-api-six.vercel.app/api](https://random-words-api-six.vercel.app/api)`
+`https://random-words-api-six.vercel.app/api`
 
 ## Endpoints
 
