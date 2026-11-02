@@ -2,7 +2,7 @@
 
 # Random Words API
 
-A lightweight Serverless API to generate random words from Wikipedia, Wiktionary, Fandom, and curated wordlists. CORS is enabled by default.
+An API to generate random words from Wikipedia, Wiktionary, Fandom, and curated wordlists. CORS is enabled by default.
 
 ## Base URL
 `https://[YOUR-VERCEL-URL]/api`
