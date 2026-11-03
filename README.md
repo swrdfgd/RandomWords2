@@ -43,7 +43,7 @@ An API to generate random words from Wikipedia, Wiktionary, Fandom, and curated 
 
 ### 3. Specific Language Words
 
-**Request:** `GET /api?lang=Indonesian` atau `GET /api?lang=Xhosa&number=3`
+**Request:** `GET /api?lang=Indonesian` or `GET /api?lang=Xhosa&number=3`
 *Provide the exact language name as defined in the source repository's [languages.json](https://github.com/eymenefealtun/all-words-in-all-languages/blob/main/languages.json) (e.g., `English`, `Spanish`, `Indonesian`). Generates a word strictly from that language dictionary.*
 
 **Response:**
